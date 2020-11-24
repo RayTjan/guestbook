@@ -82,8 +82,8 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request){
-        $user = User::findOrFail(Auth::id());
-        $user->update([
+        $acc = User::findOrFail(Auth::id());
+        $acc->update([
             'is_login' => '0',
         ]);
 
@@ -92,8 +92,8 @@ class LoginController extends Controller
     }
 
     private function isLogin(int $id){
-        $user = User::findOrFail($id);
-        return $user->update([
+        $acc = User::findOrFail($id);
+        return $acc->update([
            'is_login' => '1',
         ]);
     }
